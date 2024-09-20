@@ -1,0 +1,16 @@
+
+<div class="container-fluid mt-3">
+<%= render @training_resource %>
+
+
+<% if @training_resource.image.attached? %>
+<%= image_tag @training_resource.image, width: "200px" %> <br/><br/>
+<%end%>
+<p><b>Tag:</b> <%= @training_resource.tag.tag %></p>
+
+<%= link_to "Edit Resource", edit_training_resource_path(@training_resource.id), class: "btn btn-primary", style: "margin-right: 20px"%>
+  <%= link_to "Back", training_resources_path, class:"btn btn-dark" %> <br/> <br/>
+  <%= button_to "Delete", @training_resource, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "btn btn-danger" %>
+
+</div>
+
